@@ -1,0 +1,11 @@
+version: '3'
+services:
+  jupyterlab:
+    image: jupyter/datascience-notebook  # Use the JupyterLab image you prefer
+    container_name: jupyterlab
+    ports:
+      - "8888:8888"  # Map container port to host port
+    volumes:
+      - /home/kbdharun/Documents:/home/jovyan/work  # Mount your notebooks directory
+    command: start-notebook.sh --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+    restart: always  # Restart the container on boot
